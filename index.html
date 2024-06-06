@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .video-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+        .thumbnail {
+            width: 100%;
+            height: auto;
+        }
+        .link {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            padding: 10px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video List</h1>
+    <div class="video-list" id="video-list"></div>
+
+    <script>
+        const videos = [
+            { url: 'https://d000d.com/e/9lwpiryeig6j', thumbnail: 'https://via.placeholder.com/200?text=Video+1' },
+            { url: 'https://d000d.com/e/t0zzxmkhqz1k', thumbnail: 'https://via.placeholder.com/200?text=Video+2' },
+            { url: 'https://d000d.com/e/zwjsmgorvr98', thumbnail: 'https://via.placeholder.com/200?text=Video+3' },
+            { url: 'https://d000d.com/e/dvimpv7clqnu', thumbnail: 'https://via.placeholder.com/200?text=Video+4' },
+            { url: 'https://d000d.com/e/5xj122ij3wno', thumbnail: 'https://via.placeholder.com/200?text=Video+5' },
+            { url: 'https://d000d.com/e/ovix0v2qrak9', thumbnail: 'https://via.placeholder.com/200?text=Video+6' },
+            { url: 'https://d000d.com/e/k3a27hu10slk', thumbnail: 'https://via.placeholder.com/200?text=Video+7' },
+            { url: 'https://d000d.com/e/w4kvwbff4s15', thumbnail: 'https://via.placeholder.com/200?text=Video+8' },
+            { url: 'https://d000d.com/e/m122wy228fom', thumbnail: 'https://via.placeholder.com/200?text=Video+9' },
+            { url: 'https://d000d.com/e/bvxjq7z6kmc0', thumbnail: 'https://via.placeholder.com/200?text=Video+10' },
+            { url: 'https://d000d.com/e/lvumj2als152', thumbnail: 'https://via.placeholder.com/200?text=Video+11' },
+            { url: 'https://d000d.com/e/kbdkjzso55d2', thumbnail: 'https://via.placeholder.com/200?text=Video+12' },
+            { url: 'https://d000d.com/e/9snix38xosxm', thumbnail: 'https://via.placeholder.com/200?text=Video+13' },
+            { url: 'https://d000d.com/e/v0nm0o9uwg14', thumbnail: 'https://via.placeholder.com/200?text=Video+14' },
+            { url: 'https://d000d.com/e/4wqmittvxkw3', thumbnail: 'https://via.placeholder.com/200?text=Video+15' },
+            { url: 'https://d000d.com/e/2kp6eshqr77o', thumbnail: 'https://via.placeholder.com/200?text=Video+16' },
+            { url: 'https://d000d.com/e/nlcgny6v7dh2', thumbnail: 'https://via.placeholder.com/200?text=Video+17' }
+        ];
+
+        const videoList = document.getElementById('video-list');
+
+        videos.forEach(video => {
+            const videoItem = document.createElement('div');
+            videoItem.className = 'video-item';
+
+            const img = document.createElement('img');
+            img.src = video.thumbnail;
+            img.alt = 'Video thumbnail';
+            img.className = 'thumbnail';
+
+            const link = document.createElement('a');
+            link.href = video.url;
+            link.className = 'link';
+            link.target = '_blank';
+            link.innerText = 'Watch Video';
+
+            videoItem.appendChild(img);
+            videoItem.appendChild(link);
+            videoList.appendChild(videoItem);
+        });
